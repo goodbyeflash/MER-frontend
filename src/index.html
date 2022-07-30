@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,8 +7,152 @@
   <meta name="description" content="A light foundation for your next frontend project based on webpack.">
 </head>
 <body>
-  <img src="images/webpack.png" alt="Webpack logo">
-  <h1>webpack starter</h1>
-  <p>✨ A lightweight foundation for your next webpack based frontend project.</p>
+  <div id="wrap">
+    <div class="container">
+      <div class="inner">
+        <h1>참여자 정보 입력</h1>
+        <p>실습에 참여하는 사용자의 정보를 정확히 입력해주세요.</p>
+
+        <div class="form">
+          <table>
+            <colgroup>
+              <col style="width: 10%">
+              <col style="width: 90%">
+            </colgroup>
+
+            <tbody>
+            <tr>
+              <th><label for="name">이름</label></th>
+              <td><input type="text" id="name"></td>
+            </tr>
+            <tr>
+              <th>성별</th>
+              <td>
+                <div class="form-group chk">
+                  <input type="checkbox" class="form-checkbox" name="sex" id="chk1">
+                  <label for="chk1">남</label>
+                </div>
+                <div class="form-group chk">
+                  <input type="checkbox" class="form-checkbox" name="sex" id="chk2">
+                  <label for="chk2">여</label>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <th><label for="sel1">나이</label></th>
+              <td>
+                <div class="form-group sel">
+                  <select name="age" id="sel1">
+                    <option value="">만 5세</option>
+                    <option value="">만 6세</option>
+                    <option value="">만 7세</option>
+                    <option value="">만 8세</option>
+                    <option value="">만 9세</option>
+                  </select>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <th>거주지역</th>
+              <td>
+                <div class="form-group sel">
+                  <select name="area1" id="sel2">
+                    <option value="">서울</option>
+                    <option value="">경기</option>
+                    <option value="">인천</option>
+                  </select>
+                </div>
+
+                <div class="form-group sel">
+                  <select name="area1" id="sel3">
+                    <option value="">강남구</option>
+                    <option value="">강동구</option>
+                    <option value="">강서구</option>
+                  </select>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <th><label for="school">학교명</label></th>
+              <td><input type="text" id="school"></td>
+            </tr>
+            <tr>
+              <th><label for="code">코드번호(선택)</label></th>
+              <td><input type="text" id="code"></td>
+            </tr>
+            <tr>
+              <th>구분</th>
+              <td>
+                <div class="form-group chk">
+                  <input type="checkbox" class="form-checkbox" name="group" id="chk3">
+                  <label for="chk2">초등학교</label>
+                </div>
+
+                <div class="form-group chk">
+                  <input type="checkbox" class="form-checkbox" name="group" id="chk4">
+                  <label for="chk2">중학교</label>
+                </div>
+
+                <div class="form-group chk">
+                  <input type="checkbox" class="form-checkbox" name="group" id="chk5">
+                  <label for="chk2">고등학교</label>
+                </div>
+
+                <div class="form-group chk">
+                  <input type="checkbox" class="form-checkbox" name="group" id="chk6">
+                  <label for="chk2">대학교</label>
+                </div>
+
+                <div class="form-group chk">
+                  <input type="checkbox" class="form-checkbox" name="group" id="chk7">
+                  <label for="chk2">일반인</label>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <th>학년</th>
+              <td>
+                <div class="form-group chk">
+                  <input type="checkbox" class="form-checkbox" name="grade" id="chk8">
+                  <label for="chk2">1학년</label>
+                </div>
+
+                <div class="form-group chk">
+                  <input type="checkbox" class="form-checkbox" name="grade" id="chk9">
+                  <label for="chk2">2학년</label>
+                </div>
+
+                <div class="form-group chk">
+                  <input type="checkbox" class="form-checkbox" name="grade" id="chk10">
+                  <label for="chk2">3학년</label>
+                </div>
+
+                <div class="form-group chk">
+                  <input type="checkbox" class="form-checkbox" name="grade" id="chk11">
+                  <label for="chk2">4학년</label>
+                </div>
+
+                <div class="form-group chk">
+                  <input type="checkbox" class="form-checkbox" name="grade" id="chk12">
+                  <label for="chk2">5학년</label>
+                </div>
+
+                <div class="form-group chk">
+                  <input type="checkbox" class="form-checkbox" name="grade" id="chk13">
+                  <label for="chk2">6학년</label>
+                </div>
+
+                <div class="form-group chk">
+                  <input type="checkbox" class="form-checkbox" name="grade" id="chk14">
+                  <label for="chk2">해당없음</label>
+                </div>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
