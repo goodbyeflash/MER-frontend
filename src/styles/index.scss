@@ -1,6 +1,22 @@
-$body-color: red;
-
 body {
-  color: $body-color;
   font-family: sans-serif;
+  font-size: 16px;
+}
+
+.inner {
+  width: 800px;
+  height: 100%;
+  margin: 0 auto;
+}
+
+.form {
+  table {
+    th, td {
+      padding: 5px 10px;
+    }
+
+    th {
+      background-color: #eee;
+    }
+  }
 }
