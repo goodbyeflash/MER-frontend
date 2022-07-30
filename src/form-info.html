@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <meta name="viewport" content="initial-scale=1, viewport-fit=cover">
+
+  <title>참여자 정보 입력</title>
+</head>
+<body>
+  <div id="wrap">
+    <div class="container">
+      <div class="inner">
+        <h1>참여자 정보 입력</h1>
+        <p>실습에 참여하는 사용자의 정보를 정확히 입력해주세요.</p>
+
+        <div class="form">
+          <table>
+            <colgroup>
+              <col style="width: 20%">
+              <col style="width: 80%">
+            </colgroup>
+
+            <tbody>
+            <tr>
+              <th><label class="required" for="name">이름</label></th>
+              <td>
+                <div class="form-item">
+                  <input type="text" id="name">
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <th><span class="required">성별</span></th>
+              <td>
+                <div class="form-group">
+                  <div class="form-item radio">
+                    <input type="radio" class="form-radio" name="sex" id="radio1">
+                    <label for="radio1">남</label>
+                  </div>
+
+                  <div class="form-item radio">
+                    <input type="radio" class="form-radio" name="sex" id="radio2">
+                    <label for="radio2">여</label>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <label for="sel1" class="required">나이</label>
+              </th>
+              <td>
+                <div class="form-group">
+                  <div class="form-item sel">
+                    <select name="age" id="sel1">
+                      <option value="">만 5세</option>
+                      <option value="">만 6세</option>
+                      <option value="">만 7세</option>
+                      <option value="">만 8세</option>
+                      <option value="">만 9세</option>
+                    </select>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <th><label for="sel2" class="required">거주지역</label></th>
+              <td>
+                <div class="form-group">
+                  <div class="form-item sel">
+                    <select name="area1" id="sel2">
+                      <option value="">서울</option>
+                      <option value="">경기</option>
+                      <option value="">인천</option>
+                    </select>
+                  </div>
+
+                  <div class="form-item sel">
+                    <select name="area1" id="sel3">
+                      <option value="">강남구</option>
+                      <option value="">강동구</option>
+                      <option value="">강서구</option>
+                    </select>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <th><label for="school">학교명</label></th>
+              <td>
+                <div class="form-item">
+                  <input type="text" id="school">
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <th><label for="code">코드번호(선택)</label></th>
+              <td>
+                <div class="form-item">
+                  <input type="text" id="code">
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <th><span class="required">구분</span></th>
+              <td>
+                <div class="form-group">
+                  <div class="form-item radio">
+                    <input type="radio" class="form-radio" name="group" id="radio3">
+                    <label for="radio3">초등학교</label>
+                  </div>
+
+                  <div class="form-item radio">
+                    <input type="radio" class="form-radio" name="group" id="radio4">
+                    <label for="radio4">중학교</label>
+                  </div>
+
+                  <div class="form-item radio">
+                    <input type="radio" class="form-radio" name="group" id="radio5">
+                    <label for="radio5">고등학교</label>
+                  </div>
+
+                  <div class="form-item radio">
+                    <input type="radio" class="form-radio" name="group" id="radio6">
+                    <label for="radio6">대학교</label>
+                  </div>
+
+                  <div class="form-item radio">
+                    <input type="radio" class="form-radio" name="group" id="radio7">
+                    <label for="radio7">일반인</label>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <th><span class="required">학년</span></th>
+              <td>
+                <div class="form-group">
+                  <div class="form-item radio">
+                    <input type="radio" class="form-radio" name="grade" id="radio8">
+                    <label for="radio8">1학년</label>
+                  </div>
+
+                  <div class="form-item radio">
+                    <input type="radio" class="form-radio" name="grade" id="radio9">
+                    <label for="radio9">2학년</label>
+                  </div>
+
+                  <div class="form-item radio">
+                    <input type="radio" class="form-radio" name="grade" id="radio10">
+                    <label for="radio10">3학년</label>
+                  </div>
+
+                  <div class="form-item radio">
+                    <input type="radio" class="form-radio" name="grade" id="radio11">
+                    <label for="radio11">4학년</label>
+                  </div>
+
+                  <div class="form-item radio">
+                    <input type="radio" class="form-radio" name="grade" id="radio12">
+                    <label for="radio12">5학년</label>
+                  </div>
+
+                  <div class="form-item radio">
+                    <input type="radio" class="form-radio" name="grade" id="radio13">
+                    <label for="radio13">6학년</label>
+                  </div>
+
+                  <div class="form-item radio">
+                    <input type="radio" class="form-radio" name="grade" id="radio14">
+                    <label for="radio14">해당없음</label>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
