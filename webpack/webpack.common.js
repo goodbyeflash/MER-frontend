@@ -3,7 +3,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const htmlPageNames = ['form-info','form-join','admin-member', 'admin-login'];
+const htmlPageNames = ['form-info','form-join','admin-member', 'admin-login','training'];
 
 const multipleHtmlPlugins = htmlPageNames.map(name => {
   return new HtmlWebpackPlugin({
@@ -19,6 +19,7 @@ module.exports = {
     'form-info' : Path.resolve(__dirname, '../src/scripts/form-info.js'),
     'form-join' : Path.resolve(__dirname, '../src/scripts/form-join.js'),
     'admin-member' : Path.resolve(__dirname, '../src/scripts/admin-member.js'),
+    'training' : Path.resolve(__dirname, '../src/scripts/training.js'),
     'admin-login' : Path.resolve(__dirname, '../src/scripts/admin-member.js'),
   },
   output: {
@@ -62,14 +63,5 @@ module.exports = {
         type: 'asset'
       },
     ],
-  },
-  devServer: {
-    port: 80, // 클라이언트 포트 번호
-    proxy: {
-      '/api/': { // /api/로 시작하는 url은 아래의 전체 도메인을 추가하고, 옵션을 적용 
-        target: 'http://localhost:4000', // 클라이언트에서 api로 보내는 요청은 주소를 4000 바꿔서 보내겠다 라는 뜻
-        changeOrigin: true, // cross origin 허용 설정
-      },
-    },
   },
 };
