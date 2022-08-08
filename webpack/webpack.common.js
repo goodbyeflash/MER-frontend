@@ -3,7 +3,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const htmlPageNames = ['form-info','form-join','admin-member'];
+const htmlPageNames = ['form-info','form-join','admin-member', 'admin-login'];
 
 const multipleHtmlPlugins = htmlPageNames.map(name => {
   return new HtmlWebpackPlugin({
@@ -19,6 +19,7 @@ module.exports = {
     'form-info' : Path.resolve(__dirname, '../src/scripts/form-info.js'),
     'form-join' : Path.resolve(__dirname, '../src/scripts/form-join.js'),
     'admin-member' : Path.resolve(__dirname, '../src/scripts/admin-member.js'),
+    'admin-login' : Path.resolve(__dirname, '../src/scripts/admin-member.js'),
   },
   output: {
     path: Path.join(__dirname, '../build'),
