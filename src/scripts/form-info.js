@@ -59,9 +59,17 @@ window.onload = () => {
             grade : grade
         };
 
-        api("post","users",data,(result)=>{
-            if( result ) {
-                location.href = "training.html";
+        api("post","users",data,(res)=>{
+            console.log(res);
+            if( res ) {
+                if( res.msg == "OK" ) {
+                    location.href = "training.html";
+                }
+                else if( res.msg == "ERROR" ) {
+                    message.innerText = "오류가 발생 했습니다.";
+                }
+            } else {
+                message.innerText = "오류가 발생 했습니다.";
             }
         });
         
