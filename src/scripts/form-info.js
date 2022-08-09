@@ -3,10 +3,12 @@ import api from './api';
 
 window.onload = () => {
 
+    document.getElementsByTagName("body")[0].style.display = "block";
+    
     let message = document.getElementById("message");
     let sex, age, address1, address2, type, grade;
 
-    document.getElementById("next").onclick = (e) => {
+    document.getElementById("next").onclick = () => {
 
         const name = document.getElementById("name").value;
 

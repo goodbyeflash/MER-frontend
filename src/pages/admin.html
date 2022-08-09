@@ -8,7 +8,7 @@
   <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <title>참여자 정보 입력</title>
 </head>
-<body>
+<body style="display: none;">
   <div id="wrap">
     <div class="login">
       <div class="login-form">
@@ -22,9 +22,10 @@
 
           <div class="form-group">
             <label for="userPw">비밀번호</label>
-            <input id="userPw" type="text">
+            <input id="userPw" type="password">
           </div>
 
+          <div id="message"></div>
           <div class="btn-wrap ct">
             <button type="button" class="btn btn-secondary">회원가입</button>
             <button type="button" class="btn btn-primary">로그인</button>
