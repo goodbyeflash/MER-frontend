@@ -4,6 +4,8 @@ import api from "./api";
 
 let pageCount = 1;
 let lastPageNum = 0;
+let type = "all";
+let data = {};
 
 window.onload = () => {
 
@@ -50,6 +52,14 @@ window.onload = () => {
           }
         };
 
+        document.getElementById("findBtn").onclick = () => {
+          data = {};
+          data[document.getElementById("findSelect").value] = document.getElementById("findText").value;
+          pageCount = 1;
+          type = "find";
+          onloadTeacherTable();
+        };
+
         onloadTeacherTable();
         
       }
@@ -60,8 +70,12 @@ window.onload = () => {
 };
 
 function onloadTeacherTable() {
-  const table = document.getElementsByClassName("table")[0].getElementsByTagName("tbody")[0]; 
-  api("get",`teacher?page=${pageCount}`,undefined,(res)=>{
+
+  const table = document.getElementsByClassName("table")[0].getElementsByTagName("tbody")[0];
+  let method = type == "find" ? "post" : "get";
+  let url = type == "find" ? "teacher/find" : "teacher";  
+
+  api(method,`${url}?page=${pageCount}`,data,(res)=>{
     console.log(res);
     if( res ) {
       if( res.msg && res.msg == "OK" ) {
@@ -109,5 +123,6 @@ function onloadTeacherTable() {
       }
     }
   });
+
 }
 
