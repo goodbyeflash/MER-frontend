@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <meta name="viewport" content="initial-scale=1, viewport-fit=cover">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <title>MER Detail</title>
+</head>
+<body>
+<div id="wrap">
+  <header>
+    <div class="header-top">
+      <h1>ADMINISTRATOR</h1>
+      <ul>
+
+        <li id="login"><a>로그인 해보기(테스트)</a></li>
+        <li id="checkLogin"><a>로그인 체크(테스트)</a></li>
+        <li><a href="">관리자정보</a></li>
+        <li><a href="">기본환경</a></li>
+        <li><a href="">부가서비스</a></li>
+        <li><a href="">홈으로</a></li>
+        <li><a href="">로그아웃</a></li>
+      </ul>
+    </div>
+
+    <div class="gnb">
+      <nav>
+        <ul>
+          <li>
+            <a href="" class="dep01">환경설정</a>
+            <ul class="dep02">
+              <li><a href="">111</a></li>
+              <li><a href="">111</a></li>
+              <li><a href="">111</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="" class="dep01">회원관리</a>
+            <ul class="dep02">
+              <li><a href="">회원관리</a></li>
+              <li><a href="">회원메일발송</a></li>
+              <li><a href="">접속자집계</a></li>
+              <li><a href="">접속자검색</a></li>
+              <li><a href="">접속자로그삭제</a></li>
+              <li><a href="">포인트관리</a></li>
+              <li><a href="">투표관리</a></li>
+            </ul>
+          </li>
+          <li class="current">
+            <a href="" class="dep01">MER</a>
+            <ul class="dep02 current">
+              <li><a href="">MER</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="" class="dep01">통계관리</a>
+            <ul class="dep02">
+              <li><a href="">333</a></li>
+              <li><a href="">333</a></li>
+              <li><a href="">333</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <div class="container">
+
+    <div class="contents">
+
+      <div class="contents-top">
+        <h2>MER</h2>
+
+        <div class="admin-current">
+          <p>
+            <span>전체목록</span>
+            총 MER 수 : 0건
+          </p>
+        </div>
+      </div>
+
+      <h3>기본정보</h3>
+      <div class="table">
+        <table class="tb full">
+          <colgroup>
+            <col style="width: *">
+            <col style="width: *">
+            <col style="width: *">
+            <col style="width: *">
+            <col style="width: *">
+            <col style="width: *">
+          </colgroup>
+          <tbody>
+          <tr>
+            <th>성명</th>
+            <td colspan="5">홍길동</td>
+          </tr>
+
+          <tr>
+            <th>성별</th>
+            <td colspan="2">
+              <div class="tb-form">
+                <div class="form-group inline">
+                  <input id="chk1" type="checkbox" name="cheackbox1">
+                  <label for="chk1">아이핀</label>
+                </div>
+              </div>
+            </td>
+            <th>연령</th>
+            <td colspan="2">13</td>
+          </tr>
+
+          <tr>
+            <th>지역</th>
+            <td colspan="5">서울특별시 용산구</td>
+          </tr>
+
+          <tr>
+            <th>구분</th>
+            <td>초등학생</td>
+            <th>학교명</th>
+            <td>서울초등학교</td>
+            <th>학년</th>
+            <td>6</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="btn-wrap">
+        <button type="button" class="btn btn-secondary">선택삭제</button>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

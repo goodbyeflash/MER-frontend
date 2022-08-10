@@ -67,15 +67,11 @@ header {
           }
 
           &.current {
-            .dep02 {
-              z-index: 0;
-            }
+            z-index: 0;
           }
 
           &.active {
-            .dep02 {
-              z-index: 1;
-            }
+            z-index: 1;
           }
 
           .dep01 {
@@ -136,7 +132,7 @@ header {
     }
   }
 
-  .current-member {
+  .admin-current {
     padding: 10px 15px;
     background-color: #eee;
 
@@ -253,6 +249,14 @@ header {
   .tb {
     &-check {
       width: 50px;
+    }
+
+    &-form {
+      text-align: left;
+
+      input[type="text"] {
+        min-width: 300px;
+      }
     }
   }
 }
