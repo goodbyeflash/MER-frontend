@@ -3,7 +3,11 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
+<<<<<<< HEAD
 const htmlPageNames = ['form-info','form-join','admin-member', 'admin-login','training', 'admin-member-detail', 'mer', 'mer-detail'];
+=======
+const htmlPageNames = ['form-info','form-join','admin-member','admin','training'];
+>>>>>>> a38a1c585864170a5da308aed412836e86ad34d8
 
 const multipleHtmlPlugins = htmlPageNames.map(name => {
   return new HtmlWebpackPlugin({
@@ -20,10 +24,14 @@ module.exports = {
     'form-join' : Path.resolve(__dirname, '../src/scripts/form-join.js'),
     'admin-member' : Path.resolve(__dirname, '../src/scripts/admin-member.js'),
     'training' : Path.resolve(__dirname, '../src/scripts/training.js'),
+<<<<<<< HEAD
     'admin-login' : Path.resolve(__dirname, '../src/scripts/admin-member.js'),
     'admin-member-detail' : Path.resolve(__dirname, '../src/scripts/admin-member-detail.js'),
     'mer' : Path.resolve(__dirname, '../src/scripts/mer.js'),
     'mer-detail' : Path.resolve(__dirname, '../src/scripts/mer-detail.js'),
+=======
+    'admin' : Path.resolve(__dirname, '../src/scripts/admin.js'),
+>>>>>>> a38a1c585864170a5da308aed412836e86ad34d8
   },
   output: {
     path: Path.join(__dirname, '../build'),

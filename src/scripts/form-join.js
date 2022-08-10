@@ -3,6 +3,8 @@ import api from './api';
 
 window.onload = () => {
 
+    document.getElementsByTagName("body")[0].style.display = "block";
+
     let message = document.getElementById("message");
     let check1,check2,id,password1,password2,name,hp,email,schoolName,type,schoolCode;
 
