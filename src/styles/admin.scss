@@ -120,13 +120,28 @@ header {
 .contents {
   padding: 100px 30px 0;
 
-  &-top {
-    h2 {
-      padding: 15px 0;
-      font-size: 2.8rem;
-      font-weight: bold;
-    }
+  h2 {
+    padding: 15px 0;
+    font-size: 2.8rem;
+    font-weight: bold;
+  }
 
+  h3 {
+    padding: 40px 0 10px;
+    font-size: 2rem;
+    font-weight: 900
+  }
+
+  h4 {
+    padding: 10px 0;
+    font-weight: 900;
+  }
+
+  &-section {
+    margin-top: 30px;
+  }
+
+  &-top {
     .search {
       margin-top: 30px;
     }
@@ -228,6 +243,7 @@ header {
 }
 
 .table {
+
   table, th, td {
     padding: 7px 10px;
     border: 1px solid #e1e1e1;
@@ -257,6 +273,10 @@ header {
       input[type="text"] {
         min-width: 300px;
       }
+    }
+
+    &.lt {
+      td {text-align: left;}
     }
   }
 }
