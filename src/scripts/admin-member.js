@@ -76,7 +76,6 @@ function onloadTeacherTable() {
   let url = type == "find" ? "teacher/find" : "teacher";  
 
   api(method,`${url}?page=${pageCount}`,data,(res)=>{
-    console.log(res);
     if( res ) {
       if( res.msg && res.msg == "OK" ) {
         lastPageNum = res.result.headers['last-page'];
