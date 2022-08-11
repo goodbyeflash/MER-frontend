@@ -57,23 +57,52 @@ window.onload = () => {
           data[document.getElementById("findSelect").value] = document.getElementById("findText").value;
           pageCount = 1;
           type = "find";
+          window.sessionStorage.setItem("filter",JSON.stringify(data));
           onloadTeacherTable();
         };
 
         onloadTeacherTable();
         
       }
+
+      document.getElementById("findClear").onclick = () => {
+        window.sessionStorage.clear("filter");
+        document.getElementById("findText").value = "";
+        pageCount = 1;
+        data = {};
+        type == "all";
+        onloadTeacherTable();
+      };
+
       document.getElementsByTagName("body")[0].style.display = "block";
+
     }
   });
+
+  
 
 };
 
 function onloadTeacherTable() {
 
   const table = document.getElementsByClassName("table")[0].getElementsByTagName("tbody")[0];
-  let method = type == "find" ? "post" : "get";
-  let url = type == "find" ? "teacher/find" : "teacher";  
+  const filter = window.sessionStorage.getItem("filter");
+  let method = type == "find" || filter ? "post" : "get";
+  let url = type == "find" || filter ? "teacher/find" : "teacher";  
+
+  // 검색 된 필터 있을 경우
+  if( filter ) {
+    data = JSON.parse(filter);
+    const key = Object.keys(data)[0];
+    const value = data[key];
+    const selectOptions = [...document.getElementById("findSelect").getElementsByTagName("option")];
+    selectOptions.forEach((optionEl) => {
+      if(optionEl.value == key) {
+        optionEl.selected = true;
+      }
+    });
+    document.getElementById("findText").value = value;
+  }
 
   api(method,`${url}?page=${pageCount}`,data,(res)=>{
     if( res ) {
@@ -81,7 +110,7 @@ function onloadTeacherTable() {
         lastPageNum = res.result.headers['last-page'];
         const teacherItems = res.result.data;
         table.innerHTML = "";
-        teacherItems.forEach((item)=>{
+        teacherItems.forEach((item,index)=>{
         table.innerHTML += `<tr>
           <td rowspan="2" class="tb-check">
             <input type="checkbox" title="선택">
@@ -101,8 +130,8 @@ function onloadTeacherTable() {
           </td>
           <td rowspan="2">${item.hp}</td>
           <td rowspan="2">정상 / ${item.type}</td>
-          <td>${item.publishedDate}</td>
-          <td rowspan="2">수정 ｜ 그룹</td>
+          <td>${new Date(item.publishedDate).YYYYMMDDHHMMSS()}</td>
+          <td rowspan="2"><span id="update_${index}" data-val="${item._id}">수정</span>｜ 그룹</td>
         </tr>
         <tr>
           <td>YES</td>
@@ -111,9 +140,15 @@ function onloadTeacherTable() {
           <td><input type="checkbox"></td>
           <td><input type="checkbox"></td>
           <td><input type="checkbox"></td>
-          <td>${item.publishedDate}</td>
+          <td>${new Date(item.publishedDate).YYYYMMDDHHMMSS()}</td>
         </tr>`;
         });
+
+        for (let index = 0; index < teacherItems.length; index++) {
+          document.getElementById(`update_${index}`).onclick = (e) => {
+            location.href = `admin-member-detail.html?_id=${e.target.getAttribute('data-val')}`;
+          };
+        }
 
         document.getElementById("pageNav").innerText = `${pageCount}/${lastPageNum}`;
 
@@ -125,3 +160,21 @@ function onloadTeacherTable() {
 
 }
 
+function pad(number, length) {
+  var str = '' + number;
+  while (str.length < length) {
+    str = '0' + str;
+  }
+  return str;
+}
+
+Date.prototype.YYYYMMDDHHMMSS = function () {
+  var yyyy = this.getFullYear().toString();
+  var MM = pad(this.getMonth() + 1,2);
+  var dd = pad(this.getDate(), 2);
+  var hh = pad(this.getHours(), 2);
+  var mm = pad(this.getMinutes(), 2);
+  var ss = pad(this.getSeconds(), 2);
+
+  return `${yyyy}-${MM}-${dd} ${hh}:${mm}:${ss}`;
+};
