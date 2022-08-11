@@ -76,6 +76,16 @@ window.onload = () => {
 
       document.getElementsByTagName("body")[0].style.display = "block";
 
+      api("get","excel/download",undefined,(res)=>{
+      
+        const blob = new Blob([res.result.data], { type : res.result.headers['content-type']});
+        console.log(blob);
+        var a = document.createElement("a");
+        a.href = window.URL.createObjectURL(blob);
+        a.download = "회원리스트.xlsx";
+        a.click();
+      });
+
     }
   });
 
