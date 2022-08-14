@@ -4,7 +4,8 @@ export default async function callApi (method,url,data,cb) {
     let option = {
         method : method,
         url : `${window.location.protocol}//${window.location.hostname}:34000/api/${url}`,
-        withCredentials: true
+        withCredentials: true,
+        responseType : url.indexOf("excel") > -1 ? "blob" : "json",
     };
     if( data ) 
         option.data = data;    
