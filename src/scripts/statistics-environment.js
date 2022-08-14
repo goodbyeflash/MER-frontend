@@ -1,127 +1,230 @@
 import '../styles/reset.scss';
 import '../styles/admin.scss';
-import api from "./api";
-
-let pageCount = 1;
-let lastPageNum = 0;
-let type = "all";
-let data = {};
+import calendarImg from "../images/calendar.png";
 
 window.onload = () => {
+    var graph01 = document
+        .getElementById('chart01')
+        .getContext('2d');
 
-  api("get","teacher/check",undefined,(res)=>{
-    if( res ) {      
-      if(res.msg && res.msg == "ERROR" ) {
-        location.href = "admin.html";
-        return;
-      }
-      if( res.result.data.type == "관리자" ) {
-        //Todo.. 관리자 메뉴 확인
-      } else {
-        var lnb = window.$('nav > ul > li');
-        lnb.on('mouseenter',function(){
-          window.$(this).siblings().removeClass("active");
-          window.$(this).addClass("active");
-        }).on('mouseleave', function(){
-          window.$('nav > ul > li').removeClass("active");
-        });
-      
-        document.getElementById("logout").onclick = () => {
-          api("post","teacher/logout",undefined,(res)=>{
-            if( res ) {
-              location.href = "admin.html";
-            }
-          });
-        };
+    var graph02 = document
+        .getElementById('chart02')
+        .getContext('2d');
 
-        document.getElementById("prev").onclick = () => {
-          if( pageCount == 1 ) {
-            return;
-          } else {
-            pageCount--;
-            onloadTeacherTable();
-          }
-        };
+    var graph03 = document
+        .getElementById('chart03')
+        .getContext('2d');
 
-        document.getElementById("next").onclick = () => {
-          if( pageCount == lastPageNum ) {
-            return;
-          } else {
-            pageCount++;
-            onloadTeacherTable();
-          }
-        };
+    var graph04 = document
+        .getElementById('chart04')
+        .getContext('2d');
 
-        document.getElementById("findBtn").onclick = () => {
-          data = {};
-          data[document.getElementById("findSelect").value] = document.getElementById("findText").value;
-          pageCount = 1;
-          type = "find";
-          onloadTeacherTable();
-        };
+    var graph05 = document
+        .getElementById('chart05')
+        .getContext('2d');
 
-        onloadTeacherTable();
-        
-      }
-      document.getElementsByTagName("body")[0].style.display = "block";
+    var graph06 = document
+        .getElementById('chart06')
+        .getContext('2d');
+
+    var chartOpiton = {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    min: 0,
+                    fontSize : 14,
+                },
+                afterDataLimits(scale) {
+                    scale.max += 1;
+                    scale.min -= 1;
+                }
+            }],
+            xAxes: [{
+                barThickness: 40,  // number (pixels) or 'flex'
+            }]
+        },
+        maintainAspectRatio: false,
     }
-  });
+
+    var myChart01 = new Chart(graph01, {
+        type: 'bar', // 차트의 형태
+        data: { // 차트에 들어갈 데이터
+            labels: [
+                //x 축
+                '아주 쉽다','조금 어렵다','아주 어렵다','불가능하다'
+            ],
+            datasets: [
+                { //데이터
+                    label: '환경A', //차트 제목
+                    data: [
+                        20,30,40,10 //x축 label에 대응되는 데이터 값
+                    ],
+                    backgroundColor: 'rgb(0,118,190)',
+                    barThickness: 10,
+                },
+            ]
+        },
+        options: chartOpiton
+    });
+
+    var myChart02 = new Chart(graph02, {
+        type: 'bar', // 차트의 형태
+        data: { // 차트에 들어갈 데이터
+            labels: [
+                //x 축
+                '아주 쉽다','조금 어렵다','아주 어렵다','불가능하다'
+            ],
+            datasets: [
+                { //데이터
+                    label: '환경B', //차트 제목
+                    data: [
+                        20,30,40,10 //x축 label에 대응되는 데이터 값
+                    ],
+                    backgroundColor: 'rgb(169,41,41)',
+                    barThickness: 10,
+                },
+            ]
+        },
+        options: chartOpiton
+    });
+
+    var myChart03 = new Chart(graph03, {
+        type: 'bar', // 차트의 형태
+        data: { // 차트에 들어갈 데이터
+            labels: [
+                //x 축
+                '아주 쉽다','조금 어렵다','아주 어렵다','불가능하다'
+            ],
+            datasets: [
+                { //데이터
+                    label: '환경C', //차트 제목
+                    data: [
+                        20,30,40,10 //x축 label에 대응되는 데이터 값
+                    ],
+                    backgroundColor: 'rgb(64,159,34)',
+                    barThickness: 10,
+                },
+            ]
+        },
+        options: chartOpiton
+    });
+
+    var myChart04 = new Chart(graph04, {
+        type: 'bar', // 차트의 형태
+        data: { // 차트에 들어갈 데이터
+            labels: [
+                //x 축
+                '아주 쉽다','조금 어렵다','아주 어렵다','불가능하다'
+            ],
+            datasets: [
+                { //데이터
+                    label: '환경D', //차트 제목
+                    data: [
+                        50,10,30,10 //x축 label에 대응되는 데이터 값
+                    ],
+                    backgroundColor: [
+                        'rgb(85,15,128)',
+                        'rgb(0,118,190)',
+                        'rgb(0,118,190)',
+                        'rgb(0,118,190)'
+                    ],
+                    barThickness: 10,
+                },
+            ]
+        },
+        options: chartOpiton
+    });
+
+    var myChart05 = new Chart(graph05, {
+        type: 'bar', // 차트의 형태
+        data: { // 차트에 들어갈 데이터
+            labels: [
+                //x 축
+                '아주 쉽다','조금 어렵다','아주 어렵다','불가능하다'
+            ],
+            datasets: [
+                { //데이터
+                    label: '환경E', //차트 제목
+                    data: [
+                        80,10,5,5 //x축 label에 대응되는 데이터 값
+                    ],
+                    backgroundColor: [
+                        'rgb(15,107,128)',
+                        'rgb(15,107,128)',
+                        'rgb(15,107,128)',
+                        'rgb(15,107,128)'
+                    ],
+                    barThickness: 10,
+                },
+            ]
+        },
+        options: chartOpiton
+    });
+
+    var myChart06 = new Chart(graph06, {
+        type: 'bar', // 차트의 형태
+        data: { // 차트에 들어갈 데이터
+            labels: [
+                //x 축
+                '아주 쉽다','조금 어렵다','아주 어렵다','불가능하다'
+            ],
+            datasets: [
+                { //데이터
+                    label: '환경F', //차트 제목
+                    data: [
+                        80,10,5,5 //x축 label에 대응되는 데이터 값
+                    ],
+                    backgroundColor: [
+                        'rgb(255,98,0)',
+                        'rgb(255,98,0)',
+                        'rgb(255,98,0)',
+                        'rgb(255,98,0)'
+                    ],
+                    barThickness: 10,
+                },
+            ]
+        },
+        options: chartOpiton
+    });
+
+    window.$.datepicker.regional['ko'] = {
+        closeText: '닫기',
+        prevText: '이전달',
+        nextText: '다음달',
+        currentText: '오늘',
+        monthNames: ['1월(JAN)','2월(FEB)','3월(MAR)','4월(APR)','5월(MAY)','6월(JUN)',
+            '7월(JUL)','8월(AUG)','9월(SEP)','10월(OCT)','11월(NOV)','12월(DEC)'],
+        monthNamesShort: ['1월','2월','3월','4월','5월','6월',
+            '7월','8월','9월','10월','11월','12월'],
+        dayNames: ['일','월','화','수','목','금','토'],
+        dayNamesShort: ['일','월','화','수','목','금','토'],
+        dayNamesMin: ['일','월','화','수','목','금','토'],
+        weekHeader: 'Wk',
+        dateFormat: 'yy-mm-dd',
+        firstDay: 0,
+        isRTL: false,
+        showMonthAfterYear: true,
+        yearSuffix: '',
+        showOn: 'both',
+        buttonText: "달력",
+        buttonImage: calendarImg,
+        changeMonth: true,
+        changeYear: true,
+        showButtonPanel: true,
+        yearRange: 'c-99:c+99',
+    };
+    window.$.datepicker.setDefaults(window.$.datepicker.regional['ko']);
+
+    window.$('#sdate').datepicker();
+    window.$('#sdate').datepicker("option", "maxDate", window.$("#edate").val());
+    window.$('#sdate').datepicker("option", "onClose", function ( selectedDate ) {
+        window.$("#edate").datepicker( "option", "minDate", selectedDate );
+    });
+
+    window.$('#edate').datepicker();
+    window.$('#edate').datepicker("option", "minDate", window.$("#sdate").val());
+    window.$('#edate').datepicker("option", "onClose", function ( selectedDate ) {
+        window.$("#sdate").datepicker( "option", "maxDate", selectedDate );
+    });
 
 };
-
-function onloadTeacherTable() {
-
-  const table = document.getElementsByClassName("table")[0].getElementsByTagName("tbody")[0];
-  let method = type == "find" ? "post" : "get";
-  let url = type == "find" ? "teacher/find" : "teacher";  
-
-  api(method,`${url}?page=${pageCount}`,data,(res)=>{
-    if( res ) {
-      if( res.msg && res.msg == "OK" ) {
-        lastPageNum = res.result.headers['last-page'];
-        const teacherItems = res.result.data;
-        table.innerHTML = "";
-        teacherItems.forEach((item)=>{
-        table.innerHTML += `<tr>
-          <td rowspan="2" class="tb-check">
-            <input type="checkbox" title="선택">
-          </td>
-          <td rowspan="2">${item.id}</td>
-          <td rowspan="2">${item.name}</td>
-          <td colspan="6">
-            <div class="form-group inline">
-              <input id="radio1" type="radio" name="radio1">
-              <label for="radio1">아이핀</label>
-            </div>
-
-            <div class="form-group inline">
-              <input id="radio2" type="radio" name="radio1">
-              <label for="radio2">휴대폰</label>
-            </div>
-          </td>
-          <td rowspan="2">${item.hp}</td>
-          <td rowspan="2">정상 / ${item.type}</td>
-          <td>${item.publishedDate}</td>
-          <td rowspan="2">수정 ｜ 그룹</td>
-        </tr>
-        <tr>
-          <td>YES</td>
-          <td><input type="checkbox"></td>
-          <td><input type="checkbox"></td>
-          <td><input type="checkbox"></td>
-          <td><input type="checkbox"></td>
-          <td><input type="checkbox"></td>
-          <td>${item.publishedDate}</td>
-        </tr>`;
-        });
-
-        document.getElementById("pageNav").innerText = `${pageCount}/${lastPageNum}`;
-
-      } else {
-        console.log("선생 목록을 불러올 수 없음");
-      }
-    }
-  });
-
-}
-

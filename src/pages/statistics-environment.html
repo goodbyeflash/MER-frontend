@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!--<!DOCTYPE html>-->
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
@@ -6,6 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
   <meta name="viewport" content="initial-scale=1, viewport-fit=cover">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+
   <title>MER Detail</title>
 </head>
 <body>
@@ -48,18 +53,21 @@
               <li><a href="">투표관리</a></li>
             </ul>
           </li>
-          <li class="current">
+          <li>
             <a href="" class="dep01">MER</a>
-            <ul class="dep02 current">
+            <ul class="dep02">
               <li><a href="">MER</a></li>
             </ul>
           </li>
-          <li>
+          <li class="current">
             <a href="" class="dep01">통계관리</a>
-            <ul class="dep02">
-              <li><a href="">333</a></li>
-              <li><a href="">333</a></li>
-              <li><a href="">333</a></li>
+            <ul class="dep02 current">
+              <li><a href="">환경별</a></li>
+              <li><a href="">캐릭터별</a></li>
+              <li><a href="">성별</a></li>
+              <li><a href="">연령별</a></li>
+              <li><a href="">지역별</a></li>
+              <li><a href="">구분별</a></li>
             </ul>
           </li>
         </ul>
@@ -71,324 +79,73 @@
     <div class="contents">
 
       <div class="contents-top">
-        <h2>MER</h2>
+        <h2>통계관리(환경별)</h2>
 
         <div class="admin-current">
           <p>
             <span>전체목록</span>
-            총 MER 수 : 0건
+            총 : 0건
           </p>
         </div>
-      </div>
 
-      <div class="contents-section">
-        <h3>기본정보</h3>
-        <div class="table">
-          <table class="tb full lt">
-            <colgroup>
-              <col style="width: 12%">
-              <col style="width: 24%">
-              <col style="width: 12%">
-              <col style="width: 24%">
-              <col style="width: 12%">
-              <col style="width: auto">
-            </colgroup>
-            <tbody>
-            <tr>
-              <th>성명</th>
-              <td colspan="5">홍길동</td>
-            </tr>
-
-            <tr>
-              <th>성별</th>
-              <td>
-                <div class="tb-form">
-                  <div class="form-group inline">
-                    <input id="chk1" type="checkbox" name="cheackbox1">
-                    <label for="chk1">아이핀</label>
-                  </div>
-                </div>
-              </td>
-              <th>연령</th>
-              <td colspan="3">13</td>
-            </tr>
-
-            <tr>
-              <th>지역</th>
-              <td colspan="5">서울특별시 용산구</td>
-            </tr>
-
-            <tr>
-              <th>구분</th>
-              <td>초등학생</td>
-              <th>학교명</th>
-              <td>서울초등학교</td>
-              <th>학년</th>
-              <td>6</td>
-            </tr>
-            </tbody>
-          </table>
+        <div class="search">
+          <div class="form-date">
+            <input type="text" id="sdate" class="datePicker">
+            <span class="date-dashed">-</span>
+            <input type="text" id="edate" class="datePicker">
+          </div>
+          <button id="findBtn" type="button" class="btn btn-primary">검색</button>
         </div>
       </div>
 
-      <h3>응답결과</h3>
-      <div class="contents-section">
-        <h4>1)환경A</h4>
-        <div class="table">
-        <table class="tb full lt">
-          <colgroup>
-            <col style="width: 12%">
-            <col style="width: 24%">
-            <col style="width: 12%">
-            <col style="width: 24%">
-          </colgroup>
-          <tbody>
-          <tr>
-            <th>첨부파일</th>
-            <td>표정아이콘_ON</td>
-            <th>첨부파일</th>
-            <td>표정아이콘_OFF</td>
-          </tr>
-          <tr>
-            <th>캐릭터1</th>
-            <td colspan="3">아주 쉽다(3)</td>
-          </tr>
-          <tr>
-            <th>캐릭터2</th>
-            <td colspan="3">2. 조금 어렵다</td>
-          </tr>
-          <tr>
-            <th>캐릭터3</th>
-            <td colspan="3">아주 쉽다(3)</td>
-          </tr>
-          <tr>
-            <th>캐릭터4</th>
-            <td colspan="3">3. 아주 어렵다</td>
-          </tr>
-          <tr>
-            <th>캐릭터5</th>
-            <td colspan="3">4. 불가능하다</td>
-          </tr>
-          </tbody>
-        </table>
-      </div>
+      <div class="btn-wrap rt">
+        <button type="button" class="btn btn-excel">엑셀다운</button>
       </div>
 
       <div class="contents-section">
-        <h4>2)환경B</h4>
-        <div class="table">
-        <table class="tb full lt">
-          <colgroup>
-            <col style="width: 12%">
-            <col style="width: 24%">
-            <col style="width: 12%">
-            <col style="width: 24%">
-          </colgroup>
-          <tbody>
-          <tr>
-            <th>첨부파일</th>
-            <td>표정아이콘_ON</td>
-            <th>첨부파일</th>
-            <td>표정아이콘_OFF</td>
-          </tr>
-          <tr>
-            <th>캐릭터1</th>
-            <td colspan="3">아주 쉽다(3)</td>
-          </tr>
-          <tr>
-            <th>캐릭터2</th>
-            <td colspan="3">2. 조금 어렵다</td>
-          </tr>
-          <tr>
-            <th>캐릭터3</th>
-            <td colspan="3">아주 쉽다(3)</td>
-          </tr>
-          <tr>
-            <th>캐릭터4</th>
-            <td colspan="3">3. 아주 어렵다</td>
-          </tr>
-          <tr>
-            <th>캐릭터5</th>
-            <td colspan="3">4. 불가능하다</td>
-          </tr>
-          </tbody>
-        </table>
-      </div>
-      </div>
-
-      <div class="contents-section">
-        <h4>3)환경C</h4>
-        <div class="table">
-        <table class="tb full lt">
-          <colgroup>
-            <col style="width: 12%">
-            <col style="width: 24%">
-            <col style="width: 12%">
-            <col style="width: 24%">
-          </colgroup>
-          <tbody>
-          <tr>
-            <th>첨부파일</th>
-            <td>표정아이콘_ON</td>
-            <th>첨부파일</th>
-            <td>표정아이콘_OFF</td>
-          </tr>
-          <tr>
-            <th>캐릭터1</th>
-            <td colspan="3">아주 쉽다(3)</td>
-          </tr>
-          <tr>
-            <th>캐릭터2</th>
-            <td colspan="3">2. 조금 어렵다</td>
-          </tr>
-          <tr>
-            <th>캐릭터3</th>
-            <td colspan="3">아주 쉽다(3)</td>
-          </tr>
-          <tr>
-            <th>캐릭터4</th>
-            <td colspan="3">3. 아주 어렵다</td>
-          </tr>
-          <tr>
-            <th>캐릭터5</th>
-            <td colspan="3">4. 불가능하다</td>
-          </tr>
-          </tbody>
-        </table>
-      </div>
-      </div>
-
-      <div class="contents-section">
-        <h4>3)환경D</h4>
-        <div class="table">
-          <table class="tb full lt">
-            <colgroup>
-              <col style="width: 12%">
-              <col style="width: 24%">
-              <col style="width: 12%">
-              <col style="width: 24%">
-            </colgroup>
-            <tbody>
-            <tr>
-              <th>첨부파일</th>
-              <td>표정아이콘_ON</td>
-              <th>첨부파일</th>
-              <td>표정아이콘_OFF</td>
-            </tr>
-            <tr>
-              <th>캐릭터1</th>
-              <td colspan="3">아주 쉽다(3)</td>
-            </tr>
-            <tr>
-              <th>캐릭터2</th>
-              <td colspan="3">2. 조금 어렵다</td>
-            </tr>
-            <tr>
-              <th>캐릭터3</th>
-              <td colspan="3">아주 쉽다(3)</td>
-            </tr>
-            <tr>
-              <th>캐릭터4</th>
-              <td colspan="3">3. 아주 어렵다</td>
-            </tr>
-            <tr>
-              <th>캐릭터5</th>
-              <td colspan="3">4. 불가능하다</td>
-            </tr>
-            </tbody>
-          </table>
+        <h4>1. 환경A</h4>
+        <div class="graph">
+          <canvas id="chart01"></canvas>
         </div>
       </div>
 
       <div class="contents-section">
-        <h4>3)환경E</h4>
-        <div class="table">
-          <table class="tb full lt">
-            <colgroup>
-              <col style="width: 12%">
-              <col style="width: 24%">
-              <col style="width: 12%">
-              <col style="width: 24%">
-            </colgroup>
-            <tbody>
-            <tr>
-              <th>첨부파일</th>
-              <td>표정아이콘_ON</td>
-              <th>첨부파일</th>
-              <td>표정아이콘_OFF</td>
-            </tr>
-            <tr>
-              <th>캐릭터1</th>
-              <td colspan="3">아주 쉽다(3)</td>
-            </tr>
-            <tr>
-              <th>캐릭터2</th>
-              <td colspan="3">2. 조금 어렵다</td>
-            </tr>
-            <tr>
-              <th>캐릭터3</th>
-              <td colspan="3">아주 쉽다(3)</td>
-            </tr>
-            <tr>
-              <th>캐릭터4</th>
-              <td colspan="3">3. 아주 어렵다</td>
-            </tr>
-            <tr>
-              <th>캐릭터5</th>
-              <td colspan="3">4. 불가능하다</td>
-            </tr>
-            </tbody>
-          </table>
+        <h4>2. 환경B</h4>
+        <div class="graph">
+          <canvas id="chart02"></canvas>
         </div>
       </div>
 
       <div class="contents-section">
-        <h4>3)환경F</h4>
-        <div class="table">
-          <table class="tb full lt">
-            <colgroup>
-              <col style="width: 12%">
-              <col style="width: 24%">
-              <col style="width: 12%">
-              <col style="width: 24%">
-            </colgroup>
-            <tbody>
-            <tr>
-              <th>첨부파일</th>
-              <td>표정아이콘_ON</td>
-              <th>첨부파일</th>
-              <td>표정아이콘_OFF</td>
-            </tr>
-            <tr>
-              <th>캐릭터1</th>
-              <td colspan="3">아주 쉽다(3)</td>
-            </tr>
-            <tr>
-              <th>캐릭터2</th>
-              <td colspan="3">2. 조금 어렵다</td>
-            </tr>
-            <tr>
-              <th>캐릭터3</th>
-              <td colspan="3">아주 쉽다(3)</td>
-            </tr>
-            <tr>
-              <th>캐릭터4</th>
-              <td colspan="3">3. 아주 어렵다</td>
-            </tr>
-            <tr>
-              <th>캐릭터5</th>
-              <td colspan="3">4. 불가능하다</td>
-            </tr>
-            </tbody>
-          </table>
+        <h4>3. 환경C</h4>
+        <div class="graph">
+          <canvas id="chart03"></canvas>
         </div>
       </div>
 
-      <div class="btn-wrap ct">
-        <button type="button" class="btn btn-primary">확인</button>
+      <div class="contents-section">
+        <h4>4. 환경D</h4>
+        <div class="graph">
+          <canvas id="chart04"></canvas>
+        </div>
+      </div>
+
+      <div class="contents-section">
+        <h4>5. 환경E</h4>
+        <div class="graph">
+          <canvas id="chart05"></canvas>
+        </div>
+      </div>
+
+      <div class="contents-section">
+        <h4>6. 환경F</h4>
+        <div class="graph">
+          <canvas id="chart06"></canvas>
+        </div>
       </div>
     </div>
   </div>
 </div>
+
 </body>
 </html>

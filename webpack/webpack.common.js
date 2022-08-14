@@ -3,7 +3,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const htmlPageNames = ['form-info','form-join','admin-member','training', 'admin', 'admin-member-detail', 'mer', 'mer-detail'];
+const htmlPageNames = ['form-info','form-join','admin-member','training', 'admin', 'admin-member-detail', 'mer', 'mer-detail', 'statistics-environment'];
 
 const multipleHtmlPlugins = htmlPageNames.map(name => {
   return new HtmlWebpackPlugin({
@@ -24,6 +24,7 @@ module.exports = {
     'mer' : Path.resolve(__dirname, '../src/scripts/mer.js'),
     'mer-detail' : Path.resolve(__dirname, '../src/scripts/mer-detail.js'),
     'admin' : Path.resolve(__dirname, '../src/scripts/admin.js'),
+    'statistics-environment' : Path.resolve(__dirname, '../src/scripts/statistics-environment.js'),
   },
   output: {
     path: Path.join(__dirname, '../build'),
