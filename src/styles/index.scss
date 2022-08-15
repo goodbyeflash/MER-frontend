@@ -22,15 +22,12 @@ body {
 
 select,
 input[type="text"],
-input[type="number"] {
+input[type="number"],
+input[type="password"] {
   padding: 5px 8px;
   border: 1px solid #eee;
   border-radius: 0;
   box-sizing: border-box;
-}
-
-input[type="text"] {
-  width: 100%;
 }
 
 input[type="checkbox"],
@@ -39,20 +36,42 @@ input[type="radio"] {
 }
 
 .btn {
-  padding: 3px 10px;
-  min-width: 100px;
-  min-height: 35px;
-  line-height: 3.5rem;
+  padding: 10px 20px;
   border: 0;
-  border-radius: 5px;
-  color: #fff;
+
+  &-primary {
+    background-color: #00007e;
+    color: #fff;
+  }
+
+  &-secondary {
+    background-color: #c9c9c9;
+  }
+
+  &-excel {
+    background-color: #185c37;
+    color: #fff;
+  }
 
   &-ok {
+    color: #fff;
     background-color: #00007e;
   }
 
   &-cancel {
     background-color: #838383;
+  }
+
+  &-wrap {
+    padding: 20px 0;
+
+    &.rt {
+      text-align: right;
+    }
+
+    &.ct {
+      text-align: center;
+    }
   }
 }
 
@@ -225,6 +244,19 @@ input[type="radio"] {
       height: 3px;
       border-radius: 50%;
       background-color: #ff3b12;
+    }
+  }
+
+  &-message {
+    padding: 10px 0;
+    min-height: 18px;
+    font-size: 1.4rem;
+    font-weight: bold;
+
+    &.rt {text-align: right;}
+
+    &.alert {
+      color: #ff3b12;
     }
   }
 }
