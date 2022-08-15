@@ -3,6 +3,16 @@ import '../styles/admin.scss';
 import calendarImg from "../images/calendar.png";
 
 window.onload = () => {
+    var lnb = window.$('nav > ul > li');
+    lnb
+        .on('mouseenter', function () {
+            window.$(this).siblings().removeClass('active');
+            window.$(this).addClass('active');
+        })
+        .on('mouseleave', function () {
+            window.$('nav > ul > li').removeClass('active');
+        });
+
     var graph01 = document
         .getElementById('chart01')
         .getContext('2d');
