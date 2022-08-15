@@ -11,7 +11,7 @@
 
   <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
 
-  <title>관리자페이지_통계관리_환경별</title>
+  <title>관리자페이지_통계관리_성별</title>
 </head>
 <body>
 <div id="wrap">
@@ -79,7 +79,7 @@
     <div class="contents">
 
       <div class="contents-top">
-        <h2>통계관리(환경별)</h2>
+        <h2>통계관리(성별)</h2>
 
         <div class="admin-current">
           <p>
@@ -102,49 +102,55 @@
         <button type="button" class="btn btn-excel">엑셀다운</button>
       </div>
 
+      <div class="type" data-length="2">
+        <div class="type-select">
+          <input type="checkbox" id="type01">
+          <label for="type01">남</label>
+        </div>
+
+        <div class="type-select">
+          <input type="checkbox" id="type02">
+          <label for="type02">여</label>
+        </div>
+      </div>
+
       <div class="contents-area">
         <h3 class="color-red">0000-00-00 응답자 100명 기준</h3>
         <div class="contents-section">
-          <h4>1. 환경A</h4>
+          <h4>1. 남자 초등학생</h4>
           <div class="graph">
             <canvas id="chart01"></canvas>
           </div>
         </div>
 
         <div class="contents-section">
-          <h4>2. 환경B</h4>
+          <h4>2. 여자 중학생</h4>
           <div class="graph">
             <canvas id="chart02"></canvas>
           </div>
         </div>
 
         <div class="contents-section">
-          <h4>3. 환경C</h4>
+          <h4>3. 남자 중학생</h4>
           <div class="graph">
             <canvas id="chart03"></canvas>
           </div>
         </div>
 
         <div class="contents-section">
-          <h4>4. 환경D</h4>
+          <h4>4. 남자 대학생</h4>
           <div class="graph">
             <canvas id="chart04"></canvas>
           </div>
         </div>
 
         <div class="contents-section">
-          <h4>5. 환경E</h4>
+          <h4>5. 직장인 (남자)</h4>
           <div class="graph">
             <canvas id="chart05"></canvas>
           </div>
         </div>
 
-        <div class="contents-section">
-          <h4>6. 환경F</h4>
-          <div class="graph">
-            <canvas id="chart06"></canvas>
-          </div>
-        </div>
       </div>
     </div>
   </div>

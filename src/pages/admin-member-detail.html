@@ -72,105 +72,107 @@
           <h2>회원 수정</h2>
         </div>
 
-        <div class="table">
-          <table class="tb full">
-            <colgroup>
-              <col style="width: 10%">
-              <col style="width: 40%">
-              <col style="width: 10%">
-              <col style="width: 40%">
-            </colgroup>
-            <tbody>
-              <tr>
-                <th>아이디</th>
-                <td>
-                  <div class="tb-form">
-                    <div id="id"></div>
-                  </div>
-                </td>
-                <th>비밀번호</th>
-                <td>
-                  <div class="tb-form">
-                    <input id="password" type="password">
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <th>성명</th>
-                <td>
-                  <div class="tb-form">
-                    <input id="name" type="text">
-                  </div>
-                </td>
-                <th>학교명</th>
-                <td>
-                  <div class="tb-form">
-                    <input id="schoolName" type="text">
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <th>구분</th>
-                <td colspan="3">
-                  <div class="tb-form">
-                    <div class="form-group inline">
-                      <input id="radio1" type="radio" name="radio1">
-                      <label for="radio1">초등학교 교사</label>
+        <div class="contents-area">
+          <div class="table">
+            <table class="tb full">
+              <colgroup>
+                <col style="width: 10%">
+                <col style="width: 40%">
+                <col style="width: 10%">
+                <col style="width: 40%">
+              </colgroup>
+              <tbody>
+                <tr>
+                  <th>아이디</th>
+                  <td>
+                    <div class="tb-form">
+                      <div id="id"></div>
                     </div>
+                  </td>
+                  <th>비밀번호</th>
+                  <td>
+                    <div class="tb-form">
+                      <input id="password" type="password">
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th>성명</th>
+                  <td>
+                    <div class="tb-form">
+                      <input id="name" type="text">
+                    </div>
+                  </td>
+                  <th>학교명</th>
+                  <td>
+                    <div class="tb-form">
+                      <input id="schoolName" type="text">
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th>구분</th>
+                  <td colspan="3">
+                    <div class="tb-form">
+                      <div class="form-group inline">
+                        <input id="radio1" type="radio" name="radio1">
+                        <label for="radio1">초등학교 교사</label>
+                      </div>
 
-                    <div class="form-group inline">
-                      <input id="radio2" type="radio" name="radio1">
-                      <label for="radio2">중학교 교사</label>
-                    </div>
+                      <div class="form-group inline">
+                        <input id="radio2" type="radio" name="radio1">
+                        <label for="radio2">중학교 교사</label>
+                      </div>
 
-                    <div class="form-group inline">
-                      <input id="radio3" type="radio" name="radio1">
-                      <label for="radio3">고등학교 교사</label>
-                    </div>
+                      <div class="form-group inline">
+                        <input id="radio3" type="radio" name="radio1">
+                        <label for="radio3">고등학교 교사</label>
+                      </div>
 
-                    <div class="form-group inline">
-                      <input id="radio4" type="radio" name="radio1">
-                      <label for="radio4">교수</label>
-                    </div>
+                      <div class="form-group inline">
+                        <input id="radio4" type="radio" name="radio1">
+                        <label for="radio4">교수</label>
+                      </div>
 
-                    <div class="form-group inline">
-                      <input id="radio5" type="radio" name="radio1">
-                      <label for="radio5">교직원</label>
-                    </div>
+                      <div class="form-group inline">
+                        <input id="radio5" type="radio" name="radio1">
+                        <label for="radio5">교직원</label>
+                      </div>
 
-                    <div class="form-group inline">
-                      <input id="radio6" type="radio" name="radio1">
-                      <label for="radio6">기타</label>
+                      <div class="form-group inline">
+                        <input id="radio6" type="radio" name="radio1">
+                        <label for="radio6">기타</label>
+                      </div>
                     </div>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <th>E-mail</th>
-                <td>
-                  <div class="tb-form">
-                    <input id="email" type="text">
-                  </div>
-                </td>
-                <th>휴대폰번호</th>
-                <td>
-                  <div class="tb-form">
-                    <input id="hp" type="text">
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <th>코드번호</th>
-                <td colspan="3">
-                  <div class="tb-form">
-                    <input id="schoolCode" type="text">
-                  </div>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-          <span id="message"></span><br/>
-          <button id="updateBtn">수정</button>
+                  </td>
+                </tr>
+                <tr>
+                  <th>E-mail</th>
+                  <td>
+                    <div class="tb-form">
+                      <input id="email" type="text">
+                    </div>
+                  </td>
+                  <th>휴대폰번호</th>
+                  <td>
+                    <div class="tb-form">
+                      <input id="hp" type="text">
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th>코드번호</th>
+                  <td colspan="3">
+                    <div class="tb-form">
+                      <input id="schoolCode" type="text">
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <span id="message"></span><br/>
+            <button id="updateBtn">수정</button>
+          </div>
         </div>
       </div>
     </div>

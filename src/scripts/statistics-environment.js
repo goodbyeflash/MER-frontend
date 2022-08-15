@@ -44,7 +44,7 @@ window.onload = () => {
             }]
         },
         maintainAspectRatio: false,
-    }
+    };
 
     var myChart01 = new Chart(graph01, {
         type: 'bar', // 차트의 형태
