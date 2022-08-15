@@ -40,10 +40,15 @@ window.onload = () => {
         if( !password1 || !password2 ) {
             message.innerText = "비밀번호를 입력 해주세요.";
             return;
-        } else {
+        } else {            
             if( password1 != password2 ) {
                 message.innerText = "비밀번호가 서로 다릅니다.";
                 return;
+            } else {
+                if(!fn_checkPass(password1)) {
+                    message.innerText = "비밀번호는 문자, 숫자 필수 포함 6~12자리 입니다.";
+                    return;
+                }
             }
         }
 
@@ -96,3 +101,12 @@ window.onload = () => {
         });
     };
 };
+
+function fn_checkPass(password) {
+    var regExp = /^[A-Za-z0-9]{6,12}$/;
+    if( !regExp.test(password) ) {
+        return false;
+    } else {
+        return true;
+    }
+}

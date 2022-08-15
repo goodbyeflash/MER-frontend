@@ -14,9 +14,6 @@
     <div class="header-top">
       <h1>ADMINISTRATOR</h1>
       <ul>
-
-        <li id="login"><a>로그인 해보기(테스트)</a></li>
-        <li id="checkLogin"><a>로그인 체크(테스트)</a></li>
         <li><a href="">관리자정보</a></li>
         <li><a href="">기본환경</a></li>
         <li><a href="">부가서비스</a></li>
@@ -89,8 +86,9 @@
               <option value="지역">지역</option>
               <option value="구분">구분</option>
             </select>
-            <input type="text" class="form-input" placeholder="검색어를 입력하세요." title="검색어 입력">
-            <button type="button" class="btn btn-primary">검색</button>
+            <input id="findText" type="text" class="form-input" placeholder="검색어를 입력하세요." title="검색어 입력">
+            <button id="findBtn" type="button" class="btn btn-primary">검색</button>
+            <button id="findClear" type="button" class="btn btn-primary">초기화</button>
           </div>
         </div>
       </div>
@@ -220,6 +218,12 @@
             </tr>
             </tbody>
           </table>
+        </div>
+
+        <div class="btn-wrap ct">
+          <button type="button" id="prev" class="btn btn-arrow prev">이전</button>
+          <span id="pageNav" class="page-nav"></span>
+          <button type="button" id="next" class="btn btn-arrow next">다음</button>
         </div>
 
         <div class="btn-wrap">

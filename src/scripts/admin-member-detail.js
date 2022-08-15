@@ -85,8 +85,7 @@ window.onload = () => {
                         type : type,
                     };
 
-                    if( passwordEl.value.length > 0 ) {
-                        console.log(passwordEl.value);
+                    if( passwordEl.value.length > 0 ) {                        
                         if(!fn_checkPass(passwordEl.value)) {
                             messageEl.innerText = "비밀번호는 문자, 숫자 필수 포함 6~12자리 입니다.";
                             return;
