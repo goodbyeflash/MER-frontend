@@ -12,7 +12,7 @@ window.onload = () => {
     });
 
     const params = new URLSearchParams(window.location.search);
-    const _id = params.get("_id"); // is the number 123
+    const _id = params.get("_id");
     if( _id ) {
         api("get",`teacher/${_id}`,undefined,(res) => {
             if( res.msg == "OK" ) {

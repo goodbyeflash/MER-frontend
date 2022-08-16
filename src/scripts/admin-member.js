@@ -67,7 +67,7 @@ window.onload = () => {
             document.getElementById('findText').value;
           pageCount = 1;
           type = 'find';
-          window.sessionStorage.setItem('filter', JSON.stringify(data));
+          window.sessionStorage.setItem('teacher_filter', JSON.stringify(data));
           onloadTeacherTable();
         };
 
@@ -75,7 +75,7 @@ window.onload = () => {
       }
 
       document.getElementById('findClear').onclick = () => {
-        window.sessionStorage.clear('filter');
+        window.sessionStorage.clear('teacher_filter');
         document.getElementById('findText').value = '';
         pageCount = 1;
         data = {};
@@ -112,7 +112,7 @@ function onloadTeacherTable() {
   const table = document
     .getElementsByClassName('table')[0]
     .getElementsByTagName('tbody')[0];
-  const filter = window.sessionStorage.getItem('filter');
+  const filter = window.sessionStorage.getItem('teacher_filter');
   let method = type == 'find' || filter ? 'post' : 'get';
   let url = type == 'find' || filter ? 'teacher/find' : 'teacher';
 
@@ -185,7 +185,7 @@ function onloadTeacherTable() {
           'pageNav'
         ).innerText = `${pageCount}/${lastPageNum}`;
       } else {
-        console.log('선생 목록을 불러올 수 없음');
+        console.log('[API] => 선생 목록을 불러올 수 없습니다.');
       }
     }
   });
