@@ -1,5 +1,6 @@
 import '../styles/reset.scss';
 import '../styles/admin.scss';
+import navigationEvent from './navigationEvent';
 import api from './api';
 
 let pageCount = 1;
@@ -25,15 +26,7 @@ window.onload = () => {
       if (res.result.data.type == '관리자') {
         //Todo.. 관리자 메뉴 확인
       } else {
-        var lnb = window.$('nav > ul > li');
-        lnb
-          .on('mouseenter', function () {
-            window.$(this).siblings().removeClass('active');
-            window.$(this).addClass('active');
-          })
-          .on('mouseleave', function () {
-            window.$('nav > ul > li').removeClass('active');
-          });
+        navigationEvent();
 
         document.getElementById('logout').onclick = () => {
           api('post', 'teacher/logout', undefined, (res) => {
@@ -97,7 +90,7 @@ window.onload = () => {
             });
             var a = document.createElement('a');
             a.href = window.URL.createObjectURL(blob);
-            a.download = '회원리스트.xlsx';
+            a.download = '회원 리스트.xlsx';
             a.click();
           }
         );
