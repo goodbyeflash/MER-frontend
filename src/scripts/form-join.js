@@ -1,5 +1,5 @@
 import '../styles/index.scss';
-import api from './api';
+import api from './lib/api';
 
 window.onload = () => {
 

@@ -1,7 +1,7 @@
 import '../styles/reset.scss';
 import '../styles/admin.scss';
-import navigationEvent from './navigationEvent';
-import api from './api';
+import navigationEvent from './lib/navigationEvent';
+import api from './lib/api';
 
 window.onload = () => {
   api('get', 'teacher/check', undefined, (res) => {
@@ -67,6 +67,9 @@ window.onload = () => {
                     numberToText(item.data[key]);
                 });
               });
+              document.getElementById("totalCount").innerHTML = `
+                <span>전체목록</span>
+                총 MER 수 : ${items.length}건`;
             }
           });
         }

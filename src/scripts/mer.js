@@ -1,7 +1,7 @@
 import '../styles/reset.scss';
 import '../styles/admin.scss';
-import navigationEvent from './navigationEvent';
-import api from './api';
+import navigationEvent from './lib/navigationEvent';
+import api from './lib/api';
 
 let pageCount = 1;
 let lastPageNum = 0;
@@ -30,6 +30,13 @@ window.onload = () => {
       if (res.result.data.type == '관리자') {
         //Todo.. 관리자 메뉴 확인
       } else {
+        api('get', 'content/count', undefined, (res) => {
+          if (res.msg == 'OK') {
+            document.getElementById('totalCount').innerHTML = `
+              <span>전체목록</span>
+              총 실태조사 수 : ${res.result.data}건`;
+          }
+        });
         navigationEvent();
         document.getElementById('logout').onclick = () => {
           api('post', 'teacher/logout', undefined, (res) => {

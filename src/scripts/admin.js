@@ -1,6 +1,6 @@
 import '../styles/reset.scss';
 import '../styles/login.scss';
-import api from './api';
+import api from './lib/api';
 
 window.onload = () => {
     api("get","teacher/check",undefined,(res)=>{

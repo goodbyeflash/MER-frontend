@@ -1,4 +1,4 @@
-import calendarImg from '../images/calendar.png';
+import calendarImg from '../../images/calendar.png';
 
 export default function datepicker() {
   window.$.datepicker.regional['ko'] = {

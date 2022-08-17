@@ -1,9 +1,9 @@
 import '../styles/reset.scss';
 import '../styles/admin.scss';
-import datepicker from './datepicker';
-import navigationEvent from './navigationEvent';
-import api from './api';
-import statisticsApi from './statisticsApi';
+import datepicker from './lib/datepicker';
+import navigationEvent from './lib/navigationEvent';
+import api from './lib/api';
+import statisticsApi from './lib/statisticsApi';
 
 let sDate,
   eDate,
@@ -156,6 +156,7 @@ async function onLoadChart() {
           var meta = chartInstance.controller.getDatasetMeta(i);
           meta.data.forEach(function (bar, index) {
             var data = dataset.data[index];
+            data = Math.round(data * 10) / 10;
             ctx.fillText(data, bar._model.x, bar._model.y - 5);
           });
         });
@@ -174,7 +175,7 @@ async function onLoadChart() {
       },
       key,
       (res) => {
-        if (res.msg == 'OK') {          
+        if (res.msg == 'OK') {
           const chartDatas = [0, 0, 0, 0];
           const items = res.result.data;
           items.forEach((item) => {
@@ -189,7 +190,7 @@ async function onLoadChart() {
             3: chartDatas[3],
           });
           const graph = document
-            .getElementById(`chart${res.key.split("_")[2]}`)
+            .getElementById(`chart${res.key.split('_')[2]}`)
             .getContext('2d');
           new Chart(graph, {
             type: 'bar', // 차트의 형태
@@ -205,7 +206,8 @@ async function onLoadChart() {
               datasets: [
                 {
                   data: chartDatas,
-                  backgroundColor: backgroundColors[parseInt(res.key.split("_")[2])-1],
+                  backgroundColor:
+                    backgroundColors[parseInt(res.key.split('_')[2]) - 1],
                   barThickness: 10,
                 },
               ],

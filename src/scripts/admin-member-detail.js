@@ -1,7 +1,7 @@
 import '../styles/reset.scss';
 import '../styles/admin.scss';
-import navigationEvent from './navigationEvent';
-import api from './api';
+import navigationEvent from './lib/navigationEvent';
+import api from './lib/api';
 
 window.onload = () => {
   api('get', 'teacher/check', undefined, (res) => {
