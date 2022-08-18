@@ -96,6 +96,15 @@ window.onload = () => {
         );
       };
 
+      api('get', 'teacher/count', undefined, (res) => {
+        if (res.msg == 'OK') {
+          document.getElementById('totalCount').innerHTML = `
+          <span>전체목록</span>
+          총회원수 ${res.result.data}명 중, 차단 0명, 탈퇴 0명
+        `;
+        }
+      });
+
       document.getElementsByTagName('body')[0].style.display = 'block';
     }
   });

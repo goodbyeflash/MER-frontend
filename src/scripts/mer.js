@@ -100,7 +100,7 @@ window.onload = () => {
             });
             var a = document.createElement('a');
             a.href = window.URL.createObjectURL(blob);
-            a.download = '유저리스트.xlsx';
+            a.download = '유저 리스트.xlsx';
             a.click();
           }
         );
