@@ -38,13 +38,6 @@ window.onload = () => {
           }
         });
         navigationEvent();
-        document.getElementById('logout').onclick = () => {
-          api('post', 'teacher/logout', undefined, (res) => {
-            if (res) {
-              location.href = 'admin.html';
-            }
-          });
-        };
 
         document.getElementById('prev').onclick = () => {
           if (pageCount == 1) {

@@ -101,10 +101,18 @@ window.onload = () => {
     };
 
     const ageSelect = document.getElementById('sel1');
+
+    for (let index = 0; index < 100; index++) {
+      ageSelect.innerHTML += `<option>${index}</option>`;
+    }
+    
     age = ageSelect.options[ageSelect.selectedIndex].text;
     ageSelect.addEventListener('change', () => {
       age = ageSelect.options[ageSelect.selectedIndex].text;
     });
+
+    
+    
   }
 };
 
@@ -135,8 +143,8 @@ function onChangeKoreaAddress() {
         index == 0 ? "selected='selected'" : ''
       } value=${city}>${city}</option>`;
     });
-    cityEl.style.display = 'block';
+    cityEl.style.visibility = 'visible';
   } else {
-    cityEl.style.display = 'none';
+    cityEl.style.visibility = 'hidden';
   }
 }

@@ -1,3 +1,5 @@
+import api from './api';
+
 export default function navigationEvent() {
   let lnb = window.$('nav > ul > li');
   lnb
@@ -8,4 +10,13 @@ export default function navigationEvent() {
     .on('mouseleave', function () {
       window.$('nav > ul > li').removeClass('active');
     });
+
+    document.getElementById('logout').onclick = () => {
+      api('post', 'teacher/logout', undefined, (res) => {
+        if (res) {
+          location.href = 'admin.html';
+        }
+      });
+    };
+
 }
