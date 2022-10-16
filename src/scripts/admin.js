@@ -15,7 +15,6 @@ window.onload = () => {
                       password : document.getElementById("userPw").value,
                     },(res)=>{
                       if( res ) {
-                        console.log(res);
                         if( res.msg == "ERROR" ) {
                             document.getElementById("message").innerText = "아이디와 비밀번호를 확인해주세요.";
                         } else {                            
