@@ -173,6 +173,14 @@ async function onLoadChart() {
         });
       },
     },
+    legend: {
+      position: 'bottom'
+    },
+    layout: {
+      padding: {
+        top: 20
+      }
+    }
   };
 
   for await (const key of charNums) {
