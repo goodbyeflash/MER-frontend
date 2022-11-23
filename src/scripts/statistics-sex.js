@@ -8,7 +8,8 @@ import api from './lib/api';
 let sDate,
   eDate,
   totalCount = 0,
-  totalUserCount = 0;
+  totalUserCount = 0,
+  charUserCount = 0;
 let columns = [
   { header: '캐릭터', key: 'character', width: 25 },
   { header: '환경', key: 'contentId', width: 25 },
@@ -274,15 +275,17 @@ async function onLoadChart() {
               chartData[contentIndex - 1].data[value] =
                 chartData[contentIndex - 1].data[value] + 1;
               totalCount++;
+              charUserCount++;
             });
           });
           chartData.forEach((chartItems) => {
             chartItems.data.forEach((item, index) => {
               if (item > 0) {
-                chartItems.data[index] = (item / totalUserCount) * 100;
+                chartItems.data[index] = (item / charUserCount) * 100;
               }
             });
           });
+          charUserCount = 0;
           tempRows.push({
             charNum: parseInt(charKey.replace('C', '')),
             data: chartData,

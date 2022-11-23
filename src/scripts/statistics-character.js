@@ -186,7 +186,7 @@ async function onLoadChart() {
       },
       key,
       (res) => {
-        if (res.msg == 'OK') {
+        if (res.msg == 'OK') {          
           const charKey = res.key;
           const items = res.result.data;
           const chartData = [
@@ -260,17 +260,34 @@ async function onLoadChart() {
           items.forEach((item) => {
             const contentIndex = parseInt(item._id.split('_')[2]);
             item.data_key_value_list.forEach((list) => {
-              const value = parseInt(list.v);
+              const value = parseInt(list.v);              
               // 선택 한 사람 수 값 입력
               chartData[contentIndex - 1].data[value] =
                 chartData[contentIndex - 1].data[value] + 1;
               totalCount++;
             });
           });
+
+          let stepUserCounts = [];
+
           chartData.forEach((chartItems) => {
-            chartItems.data.forEach((item, index) => {
+            let charUserCount = 0;
+              chartItems.data.forEach((item) => {
+                if (item > 0) {
+                  charUserCount += item;
+                }
+              });
+              stepUserCounts.push(charUserCount);
+          }); 
+
+          chartData.forEach((chartItems, chartIndex) => {
+            chartItems.data.forEach((item, index) => {     
               if (item > 0) {
-                chartItems.data[index] = (item / totalUserCount) * 100;
+                // if( item >= stepUserCounts[chartIndex] ) {
+                //   //chartItems.data[index] = 100;
+                // } else {
+                  chartItems.data[index] = (item / stepUserCounts[chartIndex]) * 100;
+                //}
               }
             });
           });

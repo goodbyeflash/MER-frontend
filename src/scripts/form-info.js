@@ -81,6 +81,7 @@ window.onload = () => {
         schoolCode: document.getElementById('code').value,
         type: type,
         grade: grade,
+        publishedDate: new Date(),
       };
 
       api('post', 'users', data, (res) => {
@@ -105,14 +106,11 @@ window.onload = () => {
     for (let index = 0; index < 100; index++) {
       ageSelect.innerHTML += `<option>${index}</option>`;
     }
-    
+
     age = ageSelect.options[ageSelect.selectedIndex].text;
     ageSelect.addEventListener('change', () => {
       age = ageSelect.options[ageSelect.selectedIndex].text;
     });
-
-    
-    
   }
 };
 

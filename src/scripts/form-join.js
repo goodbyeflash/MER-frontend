@@ -93,6 +93,7 @@ window.onload = () => {
       schoolName: schoolName,
       schoolCode: schoolCode,
       type: type,
+      publishedDate: new Date(),
     };
 
     api('post', 'teacher/register', data, (res) => {

@@ -250,6 +250,7 @@ header {
   &-primary {
     background-color: #00007e;
     color: #fff;
+    cursor: pointer;
   }
 
   &-secondary {
@@ -259,6 +260,7 @@ header {
   &-excel {
     background-color: #185c37;
     color: #fff;
+    cursor: pointer;
   }
 
   &-ok {
@@ -279,6 +281,7 @@ header {
     background-repeat: no-repeat;
     background-position: center;
     background-size: 7px 11px;
+    cursor: pointer;
 
     &.prev {
       background-image: url('../images/left-arrow.png');
