@@ -24,13 +24,13 @@ const charNums = [];
 window.onload = () => {
   api('get', 'teacher/check', undefined, (res) => {
     if (res) {
-      if (res.msg && res.msg == 'ERROR') {
-        location.href = 'admin.html';
-        return;
-      }
-      if (res.result.data.type == '관리자') {
-        //Todo.. 관리자 메뉴 확인
-      } else {
+      // if (res.msg && res.msg == 'ERROR') {
+      //   location.href = 'admin.html';
+      //   return;
+      // }
+      // if (res.result.data.type == '관리자') {
+      //   //Todo.. 관리자 메뉴 확인
+      // } else {
         navigationEvent();
         datepicker();
         document.getElementsByTagName('body')[0].style.display = 'block';
@@ -85,7 +85,7 @@ window.onload = () => {
         };
 
         document.getElementsByTagName('body')[0].style.display = 'block';
-      }
+      //}
     }
   });
 };

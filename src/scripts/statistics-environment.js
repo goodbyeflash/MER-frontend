@@ -1,5 +1,6 @@
 import '../styles/reset.scss';
 import '../styles/admin.scss';
+import '../styles/layer.scss';
 import datepicker from './lib/datepicker';
 import navigationEvent from './lib/navigationEvent';
 import api from './lib/api';
@@ -22,29 +23,40 @@ const contentKeys = [];
 window.onload = () => {
   api('get', 'teacher/check', undefined, (res) => {
     if (res) {
-      if (res.msg && res.msg == 'ERROR') {
-        location.href = 'admin.html';
-        return;
-      }
-      if (res.result.data.type == '관리자') {
-        //Todo.. 관리자 메뉴 확인
-      } else {
+      // if (res.msg && res.msg == 'ERROR') {
+      //   location.href = 'admin.html';
+      //   return;
+      // }
+      // if (res.result.data.type == '관리자') {
+      //   //Todo.. 관리자 메뉴 확인
+      // } else {
         navigationEvent();
         datepicker();
         onLoadData();
+
         document.getElementById('findBtn').onclick = () => {
           onLoadData();
         };
+
+      document.getElementById('findUser').onclick = () => {
+        layerPopup();
+      };
+
+      document.getElementById('dim').onclick = () => {
+        layerPopupClose();
+      };
+
+
         const container = document.getElementById('contents-section-container');
         for (let index = 0; index < 6; index++) {
-          container.innerHTML += `
-                <div class="contents-section">
-                <h4>MER_01_0${index + 1}</h4>
-                <div class="graph">
-                    <canvas id="chart0${index + 1}"></canvas>
-                </div>
-                </div>
-            `;
+          // container.innerHTML += `
+          //       <div class="contents-section">
+          //       <h4>MER_01_0${index + 1}</h4>
+          //       <div class="graph">
+          //           <canvas id="chart0${index + 1}"></canvas>
+          //       </div>
+          //       </div>
+          //   `;
           contentKeys.push(`MER_01_0${index + 1}`);
         }
 
@@ -69,7 +81,7 @@ window.onload = () => {
         };
 
         document.getElementsByTagName('body')[0].style.display = 'block';
-      }
+      //}
     }
   });
 };
@@ -100,6 +112,22 @@ function onLoadData() {
       }
     }
   );
+}
+
+function layerPopup() {
+  var target = document.getElementById('layer01');
+
+  if( target.style.display == 'none' ){
+    target.style.display = 'block';
+  }else {
+    target.style.display = 'none';
+  }
+}
+
+function layerPopupClose() {
+  var target = document.getElementById('layer01');
+
+  target.style.display = 'none';
 }
 
 async function onLoadChart() {

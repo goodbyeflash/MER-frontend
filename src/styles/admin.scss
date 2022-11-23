@@ -357,6 +357,21 @@ header {
   position: relative;
   width: 100%;
   height: 300px;
+  margin-left: 20px;
+
+  &-wrap {
+    display: flex;
+    align-items: center;
+  }
+
+  &-img {
+    width: 300px;
+    text-align: center;
+
+    img {
+      max-width: 100%;
+    }
+  }
 }
 
 .type {
