@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
   <meta name="viewport" content="initial-scale=1, viewport-fit=cover">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-  <title>MER</title>
+  <title>관리자 페이지 | MER</title>
 </head>
 <body style="display: none;">
 <div id="wrap">
@@ -51,7 +51,7 @@
               <li><a href="statistics-environment.html">환경별</a></li>
               <li><a href="statistics-character.html">캐릭터별</a></li>
               <li><a href="statistics-sex.html">성별</a></li>
-              <li><a href="statistics-age.html">연령별</a></li>
+              <li><a href="statistics-age.html">나이별</a></li>
               <li><a href="statistics-area.html">지역별</a></li>
               <li><a href="statistics-division.html">구분별</a></li>
             </ul>
@@ -68,20 +68,18 @@
         <h2>MER</h2>
 
         <div class="admin-current">
-          <p>
-            <span>전체목록</span>
-            총 실태조사 수 : 0건
+          <p id="totalCount">            
           </p>
         </div>
 
         <div class="search">
           <div class="form form-search">
-            <select id="" name="" class="form-select">
-              <option value="성명">성명</option>
-              <option value="성별">성별</option>
-              <option value="학교명">학교명</option>
-              <option value="지역">지역</option>
-              <option value="구분">구분</option>
+            <select id="findSelect" name="" class="form-select">
+              <option value="name">성명</option>
+              <option value="sex">성별</option>
+              <option value="schoolName">학교명</option>
+              <option value="address">지역</option>
+              <option value="type">구분</option>
             </select>
             <input id="findText" type="text" class="form-input" placeholder="검색어를 입력하세요." title="검색어 입력">
             <button id="findBtn" type="button" class="btn btn-primary">검색</button>
@@ -102,7 +100,6 @@
               <th class="tb-check">
                 <input type="checkbox" class="allCheck" title="전체선택">
               </th>
-              <th>번호</th>
               <th>성명</th>
               <th>성별</th>
               <th>연령</th>
@@ -111,108 +108,10 @@
               <th>학년</th>
               <th>구분</th>
               <th>참여일</th>
+              <th>상세페이지</th>
             </tr>
             </thead>
             <tbody>
-            <tr>
-              <td class="tb-check">
-                <input type="checkbox" title="선택">
-              </td>
-              <td>7</td>
-              <td>오정우</td>
-              <td>남</td>
-              <td>72세</td>
-              <td>지역(시/군/구)</td>
-              <td>OO초등학교</td>
-              <td>6</td>
-              <td>초등학생</td>
-              <td>0000-00-00</td>
-            </tr>
-            <tr>
-              <td class="tb-check">
-                <input type="checkbox" title="선택">
-              </td>
-              <td>6</td>
-              <td>장영실</td>
-              <td>남</td>
-              <td>75세</td>
-              <td>지역(시/군/구)</td>
-              <td>OO중학교</td>
-              <td>2</td>
-              <td>중학생</td>
-              <td>0000-00-00</td>
-            </tr>
-            <tr>
-              <td class="tb-check">
-                <input type="checkbox" title="선택">
-              </td>
-              <td>5</td>
-              <td>장영실</td>
-              <td>남</td>
-              <td>75세</td>
-              <td>지역(시/군/구)</td>
-              <td>OO고등학교</td>
-              <td>2</td>
-              <td>고등학교</td>
-              <td>0000-00-00</td>
-            </tr>
-            <tr>
-              <td class="tb-check">
-                <input type="checkbox" title="선택">
-              </td>
-              <td>4</td>
-              <td>장영실</td>
-              <td>남</td>
-              <td>75세</td>
-              <td>지역(시/군/구)</td>
-              <td>OO대학교</td>
-              <td>2</td>
-              <td>대학교</td>
-              <td>0000-00-00</td>
-            </tr>
-            <tr>
-              <td class="tb-check">
-                <input type="checkbox" title="선택">
-              </td>
-              <td>3</td>
-              <td>장영실</td>
-              <td>남</td>
-              <td>75세</td>
-              <td>지역(시/군/구)</td>
-              <td>OO중학교</td>
-              <td>2</td>
-              <td>중학생</td>
-              <td>0000-00-00</td>
-            </tr>
-            <tr>
-              <td class="tb-check">
-                <input type="checkbox" title="선택">
-              </td>
-              <td>2</td>
-              <td>장영실</td>
-              <td>남</td>
-              <td>75세</td>
-              <td>서울특별시 서대문구
-              </td>
-              <td>해당없음</td>
-              <td>해당없음</td>
-              <td>일반인</td>
-              <td>0000-00-00</td>
-            </tr>
-            <tr>
-              <td class="tb-check">
-                <input type="checkbox" title="선택">
-              </td>
-              <td>1</td>
-              <td>장영실</td>
-              <td>남</td>
-              <td>75세</td>
-              <td>지역(시/군/구)</td>
-              <td>OO중학교</td>
-              <td>2</td>
-              <td>중학생</td>
-              <td>0000-00-00</td>
-            </tr>
             </tbody>
           </table>
         </div>
@@ -223,9 +122,9 @@
           <button type="button" id="next" class="btn btn-arrow next">다음</button>
         </div>
 
-        <div class="btn-wrap">
+        <!-- <div class="btn-wrap">
           <button type="button" class="btn btn-secondary">선택삭제</button>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>

@@ -1,4 +1,5 @@
 window.onload = () => {
+
   if (!window.localStorage.getItem('user_data')) {
     location.href = 'form-info.html';
   }

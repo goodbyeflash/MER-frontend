@@ -11,7 +11,7 @@
 
   <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
 
-  <title>관리자페이지_통계관리_지역별</title>
+  <title>관리자 페이지 | 통계 지역별</title>
 </head>
 <body style="display: none;">
 <div id="wrap">
@@ -56,7 +56,7 @@
               <li><a href="statistics-environment.html">환경별</a></li>
               <li><a href="statistics-character.html">캐릭터별</a></li>
               <li><a href="statistics-sex.html">성별</a></li>
-              <li><a href="statistics-age.html">연령별</a></li>
+              <li><a href="statistics-age.html">나이별</a></li>
               <li><a href="statistics-area.html">지역별</a></li>
               <li><a href="statistics-division.html">구분별</a></li>
             </ul>
@@ -73,10 +73,7 @@
         <h2>통계관리(지역별)</h2>
 
         <div class="admin-current">
-          <p>
-            <span>전체목록</span>
-            총 : 0건
-          </p>
+          <p id="totalCount"></p>
         </div>
 
         <div class="search">
@@ -95,59 +92,22 @@
 
       <div class="type" data-length="2">
         <div class="type-select">
-          <select name="area1" id="sel2">
-            <option value="">서울</option>
-            <option value="">경기</option>
-            <option value="">인천</option>
+          <select name="area1" id="sel1">            
           </select>
         </div>
 
         <div class="type-select">
-          <select name="area1" id="sel3">
-            <option value="">강남구</option>
-            <option value="">강동구</option>
-            <option value="">강서구</option>
+          <select name="area1" id="sel2">
           </select>
         </div>
 
-        <button type="button" class="btn btn-primary">조회</button>
+        <!-- <button type="button" class="btn btn-primary">조회</button> -->
       </div>
 
       <div class="contents-area">
-        <h3 class="color-red">0000-00-00 응답자 100명 기준</h3>
-        <div class="contents-section">
-          <h4>1. 남자 초등학생</h4>
-          <div class="graph">
-            <canvas id="chart01"></canvas>
-          </div>
-        </div>
+        <h3 id="totalUser" class="color-red">0000-00-00 응답자 100명 기준</h3>
+        <div id="contents-section-container">
 
-        <div class="contents-section">
-          <h4>2. 여자 중학생</h4>
-          <div class="graph">
-            <canvas id="chart02"></canvas>
-          </div>
-        </div>
-
-        <div class="contents-section">
-          <h4>3. 남자 중학생</h4>
-          <div class="graph">
-            <canvas id="chart03"></canvas>
-          </div>
-        </div>
-
-        <div class="contents-section">
-          <h4>4. 남자 대학생</h4>
-          <div class="graph">
-            <canvas id="chart04"></canvas>
-          </div>
-        </div>
-
-        <div class="contents-section">
-          <h4>5. 직장인 (남자)</h4>
-          <div class="graph">
-            <canvas id="chart05"></canvas>
-          </div>
         </div>
 
       </div>

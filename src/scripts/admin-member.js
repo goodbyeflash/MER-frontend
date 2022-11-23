@@ -1,6 +1,7 @@
 import '../styles/reset.scss';
 import '../styles/admin.scss';
-import api from './api';
+import navigationEvent from './lib/navigationEvent';
+import api from './lib/api';
 
 let pageCount = 1;
 let lastPageNum = 0;
@@ -25,24 +26,7 @@ window.onload = () => {
       if (res.result.data.type == '관리자') {
         //Todo.. 관리자 메뉴 확인
       } else {
-        var lnb = window.$('nav > ul > li');
-        lnb
-          .on('mouseenter', function () {
-            window.$(this).siblings().removeClass('active');
-            window.$(this).addClass('active');
-          })
-          .on('mouseleave', function () {
-            window.$('nav > ul > li').removeClass('active');
-          });
-
-        document.getElementById('logout').onclick = () => {
-          api('post', 'teacher/logout', undefined, (res) => {
-            if (res) {
-              location.href = 'admin.html';
-            }
-          });
-        };
-
+        navigationEvent();
         document.getElementById('prev').onclick = () => {
           if (pageCount == 1) {
             return;
@@ -67,7 +51,7 @@ window.onload = () => {
             document.getElementById('findText').value;
           pageCount = 1;
           type = 'find';
-          window.sessionStorage.setItem('filter', JSON.stringify(data));
+          window.sessionStorage.setItem('teacher_filter', JSON.stringify(data));
           onloadTeacherTable();
         };
 
@@ -75,7 +59,7 @@ window.onload = () => {
       }
 
       document.getElementById('findClear').onclick = () => {
-        window.sessionStorage.clear('filter');
+        window.sessionStorage.clear('teacher_filter');
         document.getElementById('findText').value = '';
         pageCount = 1;
         data = {};
@@ -97,11 +81,20 @@ window.onload = () => {
             });
             var a = document.createElement('a');
             a.href = window.URL.createObjectURL(blob);
-            a.download = '회원리스트.xlsx';
+            a.download = '회원 리스트.xlsx';
             a.click();
           }
         );
       };
+
+      api('get', 'teacher/count', undefined, (res) => {
+        if (res.msg == 'OK') {
+          document.getElementById('totalCount').innerHTML = `
+          <span>전체목록</span>
+          총회원수 ${res.result.data}명 중, 차단 0명, 탈퇴 0명
+        `;
+        }
+      });
 
       document.getElementsByTagName('body')[0].style.display = 'block';
     }
@@ -112,7 +105,7 @@ function onloadTeacherTable() {
   const table = document
     .getElementsByClassName('table')[0]
     .getElementsByTagName('tbody')[0];
-  const filter = window.sessionStorage.getItem('filter');
+  const filter = window.sessionStorage.getItem('teacher_filter');
   let method = type == 'find' || filter ? 'post' : 'get';
   let url = type == 'find' || filter ? 'teacher/find' : 'teacher';
 
@@ -185,7 +178,7 @@ function onloadTeacherTable() {
           'pageNav'
         ).innerText = `${pageCount}/${lastPageNum}`;
       } else {
-        console.log('선생 목록을 불러올 수 없음');
+        console.log('[API] => 선생 목록을 불러올 수 없습니다.');
       }
     }
   });
