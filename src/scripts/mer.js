@@ -23,13 +23,13 @@ let columns = [
 window.onload = () => {
   api('get', 'teacher/check', undefined, (res) => {
     if (res) {
-      // if (res.msg && res.msg == 'ERROR') {
-      //   location.href = 'admin.html';
-      //   return;
-      // }
-      // if (res.result.data.type == '관리자') {
-      //   //Todo.. 관리자 메뉴 확인
-      // } else {
+      if (res.msg && res.msg == 'ERROR') {
+        location.href = 'admin.html';
+        return;
+      }
+      if (res.result.data.type == '관리자') {
+        //Todo.. 관리자 메뉴 확인
+      } else {
         api('get', 'content/count', undefined, (res) => {
           if (res.msg == 'OK') {
             document.getElementById('totalCount').innerHTML = `
@@ -68,7 +68,7 @@ window.onload = () => {
         };
 
         onloadUserTable();
-      //}
+      }
 
       document.getElementById('findClear').onclick = () => {
         window.sessionStorage.clear('user_filter');

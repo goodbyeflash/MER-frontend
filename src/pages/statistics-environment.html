@@ -82,7 +82,7 @@
             <input type="text" id="edate" class="datePicker">
           </div>
           <button id="findBtn" type="button" class="btn btn-primary">검색</button>
-          <button id="findUser" type="button" class="btn btn-primary">사용자 선택</button>
+          <button id="userListBtn" type="button" class="btn btn-primary">사용자 선택</button>
         </div>
       </div>
 
@@ -92,28 +92,6 @@
 
       <div class="contents-area">
         <h3 id="totalUser" class="color-red">0000-00-00 응답자 100명 기준</h3>
-        <div id="contents-section-container">
-
-        </div>
-        <div class="contents-section">
-          <h4>1. 환경A</h4>
-          <div class="graph-wrap">
-            <div class="graph-img"><img src="../images/MER_01/1.png" alt=""></div>
-            <div class="graph">
-              <canvas id="chart01"></canvas>
-            </div>
-          </div>
-        </div>
-
-        <div class="contents-section">
-          <h4>1. 환경A</h4>
-          <div class="graph-wrap">
-            <div class="graph-img"><img src="../images/MER_01/step_01.png" alt=""></div>
-            <div class="graph">
-              <canvas id="chart02"></canvas>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   </div>
@@ -128,7 +106,7 @@
           <thead>
           <tr>
             <th class="tb-check">
-              <input type="checkbox" class="allCheck" title="전체선택">
+              <!-- <input type="checkbox" class="allCheck" title="전체선택"> -->
             </th>
             <th>성명</th>
             <th>성별</th>
@@ -141,141 +119,19 @@
             <th>상세페이지</th>
           </tr>
           </thead>
-          <tbody><tr>
-            <td class="tb-check">
-              <input type="checkbox" title="선택">
-            </td>
-            <td>차상빈(3차)</td>
-            <td>남</td>
-            <td>31</td>
-            <td>서울특별시 중랑구</td>
-            <td>면동초등학교</td>
-            <td>1학년</td>
-            <td>초등학교</td>
-            <td>2022-11-23 18:33:50</td>
-            <td id="userDetail_0" data-val="637de8fe4a4cd7883d2f895f">보기</td>
-          </tr><tr>
-            <td class="tb-check">
-              <input type="checkbox" title="선택">
-            </td>
-            <td>차상빈(2차)</td>
-            <td>남</td>
-            <td>31</td>
-            <td>서울특별시 중랑구</td>
-            <td>면동초등학교</td>
-            <td>1학년</td>
-            <td>초등학교</td>
-            <td>2022-11-23 14:51:55</td>
-            <td id="userDetail_1" data-val="637db4fb0481f922ab4915e6">보기</td>
-          </tr><tr>
-            <td class="tb-check">
-              <input type="checkbox" title="선택">
-            </td>
-            <td>차상빈(1차)</td>
-            <td>남</td>
-            <td>31</td>
-            <td>서울특별시 중랑구</td>
-            <td>면동초등학교</td>
-            <td>1학년</td>
-            <td>초등학교</td>
-            <td>2022-11-23 13:09:12</td>
-            <td id="userDetail_2" data-val="637d9ce852b81650cfefe8a8">보기</td>
-          </tr><tr>
-            <td class="tb-check">
-              <input type="checkbox" title="선택">
-            </td>
-            <td>유저임</td>
-            <td>남</td>
-            <td>19</td>
-            <td>경기도 광명시</td>
-            <td>유저학교</td>
-            <td>1학년</td>
-            <td>초등학교</td>
-            <td>2022-10-31 17:22:34</td>
-            <td id="userDetail_3" data-val="635f85f5b9db96135702338b">보기</td>
-          </tr><tr>
-            <td class="tb-check">
-              <input type="checkbox" title="선택">
-            </td>
-            <td>테스트유저11</td>
-            <td>남</td>
-            <td>4</td>
-            <td>서울특별시 종로구</td>
-            <td>111</td>
-            <td>1학년</td>
-            <td>초등학교</td>
-            <td>2022-10-16 14:47:24</td>
-            <td id="userDetail_4" data-val="634b9ebc6eca41e7355daad9">보기</td>
-          </tr><tr>
-            <td class="tb-check">
-              <input type="checkbox" title="선택">
-            </td>
-            <td>참여자1</td>
-            <td>여</td>
-            <td>15</td>
-            <td>광주광역시 북구</td>
-            <td>북구고등학교</td>
-            <td>3학년</td>
-            <td>고등학교</td>
-            <td>2022-09-22 11:48:16</td>
-            <td id="userDetail_5" data-val="632bcfd26c2d8e458a5c3a0c">보기</td>
-          </tr><tr>
-            <td class="tb-check">
-              <input type="checkbox" title="선택">
-            </td>
-            <td>테스터</td>
-            <td>남</td>
-            <td>9</td>
-            <td>광주광역시 북구</td>
-            <td>없</td>
-            <td>1학년</td>
-            <td>초등학교</td>
-            <td>2022-09-22 10:37:55</td>
-            <td id="userDetail_6" data-val="632bbf1259387649542b7ee3">보기</td>
-          </tr><tr>
-            <td class="tb-check">
-              <input type="checkbox" title="선택">
-            </td>
-            <td>김김생</td>
-            <td>여</td>
-            <td>11</td>
-            <td>서울시</td>
-            <td>서울</td>
-            <td>2학년</td>
-            <td>중학교</td>
-            <td>2022-09-21 16:33:03</td>
-            <td id="userDetail_7" data-val="632ad6867c1faa6eb148337a">보기</td>
-          </tr><tr>
-            <td class="tb-check">
-              <input type="checkbox" title="선택">
-            </td>
-            <td>김할배</td>
-            <td>남</td>
-            <td>65</td>
-            <td>울산광역시 북구</td>
-            <td>할배대학교</td>
-            <td>4학년</td>
-            <td>대학교</td>
-            <td>2022-08-18 12:23:30</td>
-            <td id="userDetail_8" data-val="62fdb383cc075f9ce6b9e184">보기</td>
-          </tr><tr>
-            <td class="tb-check">
-              <input type="checkbox" title="선택">
-            </td>
-            <td>김나</td>
-            <td>여</td>
-            <td>11</td>
-            <td>광주광역시 광산구</td>
-            <td>김나초등학교</td>
-            <td>3학년</td>
-            <td>초등학교</td>
-            <td>2022-08-18 12:23:30</td>
-            <td id="userDetail_9" data-val="62fdb2a1cc075f9ce6b9e17d">보기</td>
-          </tr></tbody>
+          <tbody>
+          </tbody>
         </table>
       </div>
+
+      <div class="btn-wrap ct">
+        <button type="button" id="prev" class="btn btn-arrow prev">이전</button>
+        <span id="pageNav" class="page-nav"></span>
+        <button type="button" id="next" class="btn btn-arrow next">다음</button>
+      </div>
+
       <div class="btn-wrap rt">
-        <button class="btn btn-secondary">통계보기</button>
+        <button id="viewStatisticsBtn" class="btn btn-secondary">통계보기</button>
       </div>
     </div>
   </div>
