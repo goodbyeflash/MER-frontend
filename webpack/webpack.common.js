@@ -3,7 +3,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const htmlPageNames = ['form-info','form-join','admin-member','training', 'admin', 'admin-member-detail', 'mer', 'mer-detail', 'statistics-environment','statistics-character', 'statistics-sex', 'statistics-age', 'statistics-area', 'statistics-division'];
+const htmlPageNames = ['form-info','form-join','admin-member','training', 'admin', 'admin-member-detail', 'mer', 'mer-detail', 'statistics-environment','statistics-character', 'statistics-sex', 'statistics-age', 'statistics-area', 'statistics-division','cross'];
 
 const multipleHtmlPlugins = htmlPageNames.map(name => {
   return new HtmlWebpackPlugin({
@@ -30,6 +30,7 @@ module.exports = {
     'statistics-age' : Path.resolve(__dirname, '../src/scripts/statistics-age.js'),
     'statistics-area' : Path.resolve(__dirname, '../src/scripts/statistics-area.js'),
     'statistics-division' : Path.resolve(__dirname, '../src/scripts/statistics-division.js'),
+    'cross' : Path.resolve(__dirname, '../src/scripts/cross.js'),
   },
   output: {
     path: Path.join(__dirname, '../build'),
